@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "dependencies": {
+    "ioredis": "^5.3.2",
+    "next": "^13.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/multer": "^1.4.7",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "typescript": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "name": "fbla-project",
+  "version": "1.0.0",
+  "description": "FBLA project",
+  "directories": {
+    "lib": "lib"
+  },
+  "author": "Alexander Paolini",
+  "license": "MIT"
+}

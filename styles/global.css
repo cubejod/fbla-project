@@ -1,0 +1,87 @@
+/* CSS for Partner Information Display */
+
+/* Style the container for partner entries */
+.partner-rectangle {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the partner name */
+.partner-rectangle strong {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Style the edit and delete buttons */
+.edit-button,
+.delete-button,
+.save-button,
+.cancel-button,
+.export-button,
+.import-button {
+  padding: 8px 16px;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Edit and Save button style */
+.edit-button,
+.save-button,
+.export-button {
+  background-color: #007bff; /* Blue color */
+}
+
+/* Delete and cancelbutton style */
+.delete-button,
+.cancel-button,
+.import-button {
+  background-color: #dc3545; /* Red color */
+}
+
+/* Apply some hover effect on buttons */
+.edit-button:hover,
+.delete-button:hover,
+.save-button:hover,
+.cancel-button:hover {
+  opacity: 0.9;
+}
+
+/* Style the link for the partner's website */
+.partner-rectangle a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.active-partner {
+  background-color: #ccffcc; /* Greenish background color for active partners */
+}
+.inactive-partner {
+  background-color: #ffcccc; /* Slightly red background color for inactive partners */
+}
+
+/* Apply hover effect on the website link */
+.partner-rectangle a:hover {
+  text-decoration: underline;
+}
+
+/* Media query for responsiveness (adjust as needed) */
+@media (max-width: 768px) {
+  .partner-rectangle {
+    padding: 12px;
+    margin: 12px 0;
+  }
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+  gap: 16px; /* Adjust the gap between grid items */
+}
