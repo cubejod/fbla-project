@@ -21,8 +21,8 @@ const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowIm
     onSubmit(partnerData)
   }
 
-  const handleFileChange = (event: React.ChangeEvent<any>) => {
-    const selectedFile = event.target.files[ 0 ]
+  const handleFileChange = (e: React.ChangeEvent<any>) => {
+    const selectedFile = e.target.files[ 0 ]
 
     if (selectedFile) {
       const reader = new FileReader()
@@ -32,7 +32,7 @@ const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowIm
           const fileContent = JSON.parse(event.target!.result as string)
           setPartnerData(fileContent)
         } catch (error) {
-          alert("Failed to import partner")
+          alert('Failed to import partner')
         }
       }
 

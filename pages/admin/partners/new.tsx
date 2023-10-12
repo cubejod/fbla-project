@@ -1,7 +1,11 @@
+import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
 import PartnerForm from '../../../components/PartnerForm'
+import { withSessionSsr } from '../../../lib/withSession'
 import { Partner } from '../../../types'
+
+interface Props { }
 
 const NewPartner: React.FC = () => {
   const router = useRouter()
@@ -55,5 +59,18 @@ const NewPartner: React.FC = () => {
     </div>
   )
 }
+
+export const getServerSideProps = withSessionSsr(
+  async function getServerSideProps ({ req }) {
+    if (!req.session.username) return {
+      redirect: {
+        destination: '/admin/login?redirect=/admin/partners/new',
+        statusCode: 307
+      }
+    }
+
+    return { props: {} }
+  } satisfies GetServerSideProps<Props>
+)
 
 export default NewPartner

@@ -14,5 +14,8 @@
   "typescript.format.insertSpaceAfterTypeAssertion": false,
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
-  "typescript.format.placeOpenBraceOnNewLineForFunctions": false
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "files.trimTrailingWhitespace": true
 }

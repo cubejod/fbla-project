@@ -1,13 +1,15 @@
 
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
-import { GetServerSideProps } from "next"
-import PartnerComponent from "../../../components/PartnerComponent"
-import redis from "../../../lib/redis"
-import type { Partner } from "../../../types"
+import { GetServerSideProps } from 'next'
+import PartnerComponent from '../../../components/PartnerComponent'
+import redis from '../../../lib/redis'
+import { withSessionSsr } from '../../../lib/withSession'
+import type { Partner } from '../../../types'
 
 type Props = {
   partners: Partner[]
+  username: string
 }
 
 const PartnersPage: React.FC<Props> = ({ partners }) => {
@@ -97,16 +99,30 @@ const PartnersPage: React.FC<Props> = ({ partners }) => {
   )
 }
 
-export const getServerSideProps = (async (context) => {
-  const partnerKeys = await redis.keys(`partners.*`)
-  const partners: Partner[] = []
+export const getServerSideProps = withSessionSsr(
+  async function getServersideProps ({ req }) {
+    if (!req.session.username) return {
+      redirect: {
+        destination: '/admin/login?redirect=/admin/partners',
+        statusCode: 307
+      }
+    }
 
-  for (const key of partnerKeys) {
-    const partner = await redis.hgetall(key) as unknown as Partner
-    partners.push(partner)
-  }
+    const partnerKeys = await redis.keys('partners.*')
+    const partners: Partner[] = []
 
-  return { props: { partners } }
-}) satisfies GetServerSideProps<Props>
+    for (const key of partnerKeys) {
+      const partner = await redis.hgetall(key) as unknown as Partner
+      partners.push(partner)
+    }
+
+    return {
+      props: {
+        username: req.session.username,
+        partners
+      }
+    }
+  } satisfies GetServerSideProps<Props>
+)
 
 export default PartnersPage
