@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
-import PartnerForm from '../../../components/PartnerForm'
+import PartnerForm from '../../../components/Partners/PartnerForm'
 import { withSessionSsr } from '../../../lib/withSession'
 import { Partner } from '../../../types'
 

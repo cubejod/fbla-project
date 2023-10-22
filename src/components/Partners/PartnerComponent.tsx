@@ -1,12 +1,12 @@
 import React from 'react'
-import { Partner } from '../types'
+import { Partner } from '../../types'
 
 
 type Props = {
   partner: Partner,
-  onDelete: (id: number) => void,
-  onEdit: (id: number) => void,
-  onExport: (id: number) => void
+  onDelete?: (id: number) => void,
+  onEdit?: (id: number) => void,
+  onExport?: (id: number) => void
 }
 
 const PartnerComponent: React.FC<Props> = ({ partner, onDelete, onEdit, onExport }) => {
@@ -47,18 +47,32 @@ const PartnerComponent: React.FC<Props> = ({ partner, onDelete, onEdit, onExport
       <div>
         <strong>Partner ID:</strong> { partner.id }
       </div>
-      <button className="edit-button" onClick={ (e) => {
-        e.preventDefault()
-        onEdit(partner.id)
-      } }>Edit</button>
-      <button className="delete-button" onClick={ (e) => {
-        e.preventDefault()
-        onDelete(partner.id)
-      } }>Delete</button>
-      <button className="export-button" onClick={ (e) => {
-        e.preventDefault()
-        onExport(partner.id)
-      } }>Export</button>
+      {/* goofy patterns to optionally include buttons */ }
+      {
+        onEdit
+          ? <button className="edit-button" onClick={ (e) => {
+            e.preventDefault()
+            onEdit(partner.id)
+          } }>Edit</button>
+          : ''
+      }
+      {
+        onDelete
+          ? <button className="delete-button" onClick={ (e) => {
+            e.preventDefault()
+            onDelete(partner.id)
+          } }>Delete</button>
+          : ''
+      }
+      {
+        onExport
+          ? <button className="export-button" onClick={ (e) => {
+            e.preventDefault()
+            onExport(partner.id)
+          } }>Export</button>
+          : ''
+      }
+
     </div>)
 }
 

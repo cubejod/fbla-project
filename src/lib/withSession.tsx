@@ -1,3 +1,4 @@
+import { IronSessionOptions } from 'iron-session'
 import { withIronSessionApiRoute, withIronSessionSsr } from 'iron-session/next'
 import { GetServerSidePropsContext, GetServerSidePropsResult, NextApiHandler } from 'next'
 import { User } from '../types'
@@ -6,12 +7,14 @@ declare module 'iron-session' {
   interface IronSessionData extends User { }
 }
 
-const sessionOptions = {
+const sessionOptions: IronSessionOptions = {
   password: process.env.COOKIE_PASSWORD || 'a'.repeat(32),
   cookieName: 'user',
   cookieOptions: {
     secure: process.env.NODE_ENV === 'production',
-    maxAge: 100
+    maxAge: process.env.NODE_ENV === 'production'
+      ? 60 * 60 * 12 // 12 hours
+      : 60 * 15 // 15 minutes
   },
 }
 

@@ -1,6 +1,6 @@
 import Redis from 'ioredis'
 
-import { redisConfig } from '../configuration'
+import { redisConfig } from '../../configuration'
 
 const redis = new Redis(redisConfig)
 

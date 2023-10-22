@@ -18,4 +18,18 @@ export default class PermissionsUtil {
     // add all permissions and return number
     return permissions.reduce((a, b) => a + b, 0)
   }
+
+  static toReadable (permissions: number): string[] {
+    const output = [] as string[]
+    for (const a of Object.entries(Permissions).filter(x => typeof x[ 1 ] == 'number')) {
+      const permissionsNumber = a[ 1 ]
+      const permissionsName = a[ 0 ]
+
+      if (
+        this.hasPermission({ permissions } as User, permissionsNumber as Permissions)
+      )
+        output.push(permissionsName)
+    }
+    return output
+  }
 }

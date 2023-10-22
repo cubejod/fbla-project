@@ -49,7 +49,7 @@ async function setup () {
     (await redis.keys('users.*')).length == 0 ||
     config.FORCE_USER == true
   ) {
-    await redis.hset('users.1', firstUser)
+    await redis.hset('users.0', firstUser)
     console.log(`Setup admin user. Username: ${firstUser.email} Password: ${firstUser.password}`)
   } else console.log('Admin user not set.')
 }

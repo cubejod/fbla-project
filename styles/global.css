@@ -1,7 +1,8 @@
 /* CSS for Partner Information Display */
 
 /* Style the container for partner entries */
-.partner-rectangle {
+.partner-rectangle,
+.user-rectangle {
   border: 1px solid #ccc;
   padding: 16px;
   margin: 16px 0;
@@ -11,7 +12,8 @@
 }
 
 /* Style the partner name */
-.partner-rectangle strong {
+.partner-rectangle,
+.user-rectangle strong {
   font-weight: bold;
   margin-right: 8px;
 }
@@ -55,7 +57,8 @@
 }
 
 /* Style the link for the partner's website */
-.partner-rectangle a {
+.partner-rectangle a,
+.user-rectangle a {
   color: #007bff;
   text-decoration: none;
 }

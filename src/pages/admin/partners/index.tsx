@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router'
 
 import { GetServerSideProps } from 'next'
-import PartnerComponent from '../../../components/PartnerComponent'
+import PartnerComponent from '../../../components/Partners/PartnerComponent'
 import redis from '../../../lib/redis'
 import { withSessionSsr } from '../../../lib/withSession'
 import type { Partner } from '../../../types'
@@ -58,17 +58,19 @@ const PartnersPage: React.FC<Props> = ({ partners }) => {
   async function handleSingularExport (id: number) {
     const data = await fetch(`/api/partners/${ id }`)
     const text = await data.text()
-    const blob = new Blob([ text ], { type: 'application/json' })
 
+    const blob = new Blob([ text ], { type: 'application/json' })
     const url = window.URL.createObjectURL(blob)
 
     const a = document.createElement('a')
     a.href = url
     a.download = `partner-${ id }.json`
     a.style.display = 'none'
+
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
+
     window.URL.revokeObjectURL(url)
   }
 

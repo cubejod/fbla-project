@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Partner } from '../types'
+import { Partner } from '../../types'
 
 type Props = {
   initialData: Partner
@@ -11,6 +11,8 @@ type Props = {
 const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowImport }) => {
   const [ partnerData, setPartnerData ] = useState(initialData)
 
+  // TODO: fix
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleInputChange = (e: React.ChangeEvent<any>) => {
     const { name, value } = e.target
     setPartnerData({ ...partnerData, [ name ]: value })
@@ -21,6 +23,8 @@ const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowIm
     onSubmit(partnerData)
   }
 
+  // TODO: fix
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFileChange = (e: React.ChangeEvent<any>) => {
     const selectedFile = e.target.files[ 0 ]
 

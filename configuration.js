@@ -4,7 +4,7 @@
 module.exports.redisConfig = {}
 
 /**
- * @type {import('./types').User}
+ * @type {import('./src/types').User}
  */
 module.exports.firstUser = {
   username: 'admin',

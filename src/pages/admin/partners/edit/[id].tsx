@@ -4,7 +4,7 @@ import React from 'react'
 
 import redis from '../../../../lib/redis'
 
-import PartnerForm from '../../../../components/PartnerForm'
+import PartnerForm from '../../../../components/Partners/PartnerForm'
 import { withSessionSsr } from '../../../../lib/withSession'
 import { Permissions, type Partner } from '../../../../types'
 import PermissionsUtil from '../../../../utils/PermissionsUtil'
