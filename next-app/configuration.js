@@ -1,7 +1,10 @@
 /**
  * @type {import('ioredis').RedisOptions} Options
  */
-module.exports.redisConfig = {}
+module.exports.redisConfig = {
+  port: 6379,
+  host: 'redis-server'
+}
 
 /**
  * @type {import('./src/types').User}

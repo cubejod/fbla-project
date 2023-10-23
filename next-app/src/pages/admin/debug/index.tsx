@@ -1,6 +1,3 @@
-
-
-
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import PartnerComponent from '../../../components/Partners/PartnerComponent'

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: ./next-app
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./next-app/src:/app/src
+      - ./next-app/public:/app/public
+      - ./next-app/configuration.js:/app/configuration.js
+      - ./next-app/setup:/app/setup
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - redis-server
+
+  redis-server:
+    container_name: redis-server
+    image: 'redis:6.2-alpine'
+    volumes:
+      - ~/fbla-project/redis:/data
+    ports:
+      - 6379:6379
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - '8001:8001'
+    volumes:
+      - ~/fbla-project/redisinsight:/db 
