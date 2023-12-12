@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Select, { SelectProps } from 'react-select'
+import { RESOURCES_AVAILABLE } from '../../../configuration'
 import { Partner } from '../../types'
 
 type Props = {
@@ -16,6 +18,11 @@ const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowIm
   const handleInputChange = (e: React.ChangeEvent<any>) => {
     const { name, value } = e.target
     setPartnerData({ ...partnerData, [ name ]: value })
+  }
+
+  // TODO: FIX ANY
+  const handleSelectChange = (selectedOptions: SelectProps[]) => {
+    setPartnerData({ ...partnerData, resourcesAvailable: selectedOptions.map((option) => option.value) })
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -68,12 +75,12 @@ const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowIm
       </div>
       <div>
         <label>Resources Available:</label>
-        <input
-          type="text"
+        <Select
+          isMulti
           name="resourcesAvailable"
-          value={ partnerData.resourcesAvailable }
-          onChange={ handleInputChange }
-          required
+          options={ RESOURCES_AVAILABLE }
+          value={ RESOURCES_AVAILABLE.filter(option => partnerData.resourcesAvailable.includes(option.value)) }
+          onChange={ handleSelectChange as any }
         />
       </div>
       <div>
@@ -173,8 +180,8 @@ const PartnerForm: React.FC<Props> = ({ initialData, onSubmit, onCancel, allowIm
           onChange={ handleInputChange }
           required
         >
-          <option value={ 1 }>Active</option>
-          <option value={ 0 }>Inactive</option>
+          <option value={ 1 }>1</option>
+          <option value={ 0 }>In1</option>
         </select>
       </div>
       { allowImport

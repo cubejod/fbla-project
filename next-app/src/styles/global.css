@@ -24,7 +24,8 @@
 .save-button,
 .cancel-button,
 .export-button,
-.import-button {
+.import-button,
+.info-button {
   padding: 8px 16px;
   margin-top: 8px;
   border: none;
@@ -37,7 +38,8 @@
 /* Edit and Save button style */
 .edit-button,
 .save-button,
-.export-button {
+.export-button,
+.info-button {
   background-color: #007bff; /* Blue color */
 }
 
@@ -63,11 +65,11 @@
   text-decoration: none;
 }
 
-.active-partner {
-  background-color: #ccffcc; /* Greenish background color for active partners */
+.1-partner {
+  background-color: #ccffcc; /* Greenish background color for 1 partners */
 }
-.inactive-partner {
-  background-color: #ffcccc; /* Slightly red background color for inactive partners */
+.in1-partner {
+  background-color: #ffcccc; /* Slightly red background color for in1 partners */
 }
 
 /* Apply hover effect on the website link */
@@ -141,4 +143,150 @@
 
 .login-form button:hover {
   background-color: #0056b3;
+}
+
+/* Container Style */
+.container {
+  max-width: 100%;
+  padding: 1rem;
+  margin: auto;
+}
+
+/* Margin Bottom */
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+/* Button Style */
+.button {
+  background-color: #3490dc; /* Blue 500 */
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #2779bd; /* Blue 700 */
+}
+
+/* Input Style */
+.input {
+  border: 1px solid #d1d5db; /* Gray 300 */
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+}
+
+/* aaaa */
+.container {
+  max-width: 800px;
+  padding: 16px;
+  margin: auto;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.partnerCard {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.partnerInfo {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.partnerInfo strong {
+  font-weight: bold;
+}
+
+.partnerLink {
+  color: blue;
+  text-decoration: none;
+}
+
+.partnerLink:hover {
+  text-decoration: underline;
+}
+
+.partner-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.partner-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.partner-name {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.partner-type,
+.partner-resources {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: #555;
+}
+
+/* Add more styles as needed */
+
+.partner-container {
+  background-color: #f8f9fa; /* light gray background */
+  border: 1px solid #dee2e6; /* subtle border */
+  border-radius: 0.25rem;
+  padding: 20px;
+  max-width: 600px; /* adjust as needed */
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* a clean, modern font */
+}
+
+.partner-container h1 {
+  color: #343a40; /* dark gray */
+  border-bottom: 2px solid #007bff; /* blue bottom border for the title */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.partner-container h2 {
+  color: #007bff; /* blue for the partner name to stand out */
+  margin-bottom: 0.5rem;
+}
+
+.partner-container p {
+  color: #495057; /* dark gray for the text */
+  line-height: 1.5;
+}
+
+.partner-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.partner-container a:hover {
+  text-decoration: underline;
+}
+
+.partner-container strong {
+  font-weight: 600; /* slightly bolder than normal for emphasis */
+}
+
+.partner-container .partner-info-section {
+  margin-bottom: 1rem; /* space between sections */
 }

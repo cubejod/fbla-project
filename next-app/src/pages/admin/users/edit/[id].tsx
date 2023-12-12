@@ -28,7 +28,7 @@ const EditUser: React.FC<Props> = ({ user }) => {
     }
   }
 
-  const handleCancel = async () => {
+  const handleCancel = () => {
     router.push('/admin/users')
   }
 

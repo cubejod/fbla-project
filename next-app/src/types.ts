@@ -1,7 +1,7 @@
 export interface Partner {
   partnerName: string
   organizationType: string
-  resourcesAvailable: string
+  resourcesAvailable: string[]
   contactName: string
   contactEmail: string
   contactPhone: string
